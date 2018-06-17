@@ -1,6 +1,6 @@
 .. highlight:: sh
 
-.. _conf-node-settings:
+.. _conf-node:
 
 ======================
 Node Specific Settings
@@ -11,11 +11,15 @@ Node Specific Settings
 .. contents::
    :local:
 
-Basics
-========
+.. _conf-node-basics:
 
-Topology
---------
+Basics
+======
+
+.. _conf-node-names:
+
+Cluster Membership
+------------------
 
 **node.name**
   | *Runtime:* ``no``
@@ -184,8 +188,8 @@ Elasticsearch HTTP API
     Manipulating your data via elasticsearch API and not via SQL might result
     in inconsistent data. You have been warned!
 
-Operating System
-================
+System Setup
+============
 
 File System
 -----------
