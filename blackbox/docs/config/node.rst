@@ -16,7 +16,7 @@ Node Specific Settings
 Basics
 ======
 
-.. _conf-node-names:
+.. _conf-node-membership:
 
 Cluster Membership
 ------------------
@@ -38,6 +38,8 @@ Cluster Membership
   | *Runtime:*   ``no``
 
   The name of the CrateDB cluster the node should join to.
+
+.. _conf-node-type:
 
 Node Type
 ---------
@@ -79,7 +81,7 @@ Nodes marked as ``node.master`` will only handle cluster management loads if
 they are elected as the cluster master. All other loads are shared equally.
 
 
-.. _conf-node-attributes:
+.. _conf-node-attrs:
 
 Custom Attributes
 -----------------
@@ -95,7 +97,7 @@ Custom attributes are not validated by CrateDB, unlike core node attributes.
 Custom attributes can, however, be :ref:`used to control shard allocation
 <conf-routing-allocation-awareness>`.
 
-.. _conf-node-enterprise-license:
+.. _conf-node-license:
 
 License
 -------
@@ -108,8 +110,12 @@ License
 
 .. _`Enterprise Edition`: https://crate.io/enterprise-edition/
 
+.. _conf-node-functionality:
+
 Functionality
 =============
+
+.. _conf-node-ro:
 
 Read-Only Mode
 --------------
@@ -120,6 +126,8 @@ Read-Only Mode
 
   If set to ``true``, the node will only allow SQL statements which are
   resulting in read operations.
+
+.. _conf-node-query-limits:
 
 Query Limits
 ------------
@@ -140,10 +148,12 @@ Query Limits
     ``ANY`` operators on arrays of that length can lead to heavy memory,
     consumption which could cause nodes to crash with OutOfMemory exceptions.
 
-.. _conf-node-lang-js:
+.. _conf-node-languages:
 
 Procedural Languages
 --------------------
+
+.. _conf-node-lang-js:
 
 JavaScript
 ..........
@@ -159,6 +169,8 @@ JavaScript
 
       This is an :ref:`enterprise feature <enterprise_features>`.
 
+.. _conf-node-plugins:
+
 Plugins
 -------
 
@@ -169,8 +181,7 @@ Plugins
 
   If any plugin listed here is missing, the CrateDB node will fail to start.
 
-
-.. _es_api_setting:
+.. _conf-node-es-api:
 
 Elasticsearch HTTP API
 ----------------------
@@ -188,8 +199,12 @@ Elasticsearch HTTP API
     Manipulating your data via elasticsearch API and not via SQL might result
     in inconsistent data. You have been warned!
 
+.. _conf-node-system:
+
 System Setup
 ============
+
+.. _conf-node-fs:
 
 File System
 -----------
@@ -253,8 +268,12 @@ File System
   By default blobs will be stored under the same path as normal data. A
   relative path value is interpreted as relative to ``CRATE_HOME``.
 
+.. _conf-node-mem:
+
 Memory
 ------
+
+.. _conf-node-mem-lock:
 
 Memory Lock
 ...........
@@ -268,6 +287,7 @@ Memory Lock
   system call on startup to ensure that the memory pages of the CrateDB process
   are locked into RAM.
 
+.. _conf-node-gc:
 
 Garbage Collection
 ..................
@@ -317,8 +337,12 @@ long. The following settings can be used to adjust these timeouts:
   CrateDB will log a debug message if it takes more than the configured
   timespan to collect the *Old Gen* / *Tenured Gen* (heap).
 
+.. _conf-node-network:
+
 Network
 -------
+
+.. _conf-node-hosts:
 
 Hosts
 .....
@@ -365,7 +389,7 @@ Hosts
                                ``_en0_``.
     =========================  =================================================
 
-.. _conf_ports:
+.. _conf-node-ports:
 
 Ports
 .....
@@ -425,6 +449,8 @@ Ports
   range is used. If this is set to an integer value it is considered as an
   explicit single port.
 
+.. _conf-node-multi:
+
 Multitenancy
 ------------
 
@@ -435,8 +461,12 @@ Multitenancy
   Defines how many nodes are allowed to be started on the same machine using
   the same configured data path defined via `path.data`_.
 
+.. _conf-node-security:
+
 Security
 ========
+
+.. _conf-node-auth:
 
 Authentication
 --------------
@@ -445,7 +475,7 @@ Authentication
 
     Authentication is an :ref:`enterprise feature <enterprise_features>`.
 
-.. _host_based_auth:
+.. _conf-node-auth-trust:
 
 Trust Authentication
 ....................
@@ -457,6 +487,8 @@ Trust Authentication
   The default user that should be used for authentication when clients connect
   to CrateDB via HTTP protocol and they do not specify a user via the
   ``Authorization`` request header.
+
+.. _conf-node-auth-host:
 
 Host Based Authentication
 .........................
@@ -471,6 +503,8 @@ nodes may have different authentication settings.
 
   Setting to enable or disable Host Based Authentication (HBA). It is disabled
   by default.
+
+.. _conf-node-auth-host-entries:
 
 HBA Entries
 ```````````
@@ -558,8 +592,7 @@ The meaning of the fields of the are as follows:
         protocol: pg
         ssl: on
 
-
-.. _ssl_config:
+.. _conf-node-tls:
 
 Transport Layer Security (TLS)
 ------------------------------
@@ -628,6 +661,7 @@ Layer Security (TLS).
   The password used to decrypt the truststore file defined with
   ``ssl.truststore_filepath``.
 
+.. _conf-node-cors:
 
 Cross-Origin Resource Sharing (CORS)
 ------------------------------------
@@ -679,10 +713,12 @@ sharing`_ settings in CrateDB allow for configuring these.
 .. _`same-origin policy`: https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
 .. _`cross-origin resource sharing`: https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
 
+.. _conf-node-snapshots:
+
 Snapshots
 =========
 
-.. _ref-configuration-repositories:
+.. _conf-node-snapshot-repos:
 
 Repositories
 ------------
